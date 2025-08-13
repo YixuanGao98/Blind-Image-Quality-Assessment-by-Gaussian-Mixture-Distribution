@@ -1,0 +1,1 @@
+# Blind-Image-Quality-Assessment-by-Gaussian-Mixture-Distribution
