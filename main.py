@@ -10,7 +10,7 @@ import torch.nn.functional as F
 import numpy as np
 from sklearn.metrics.pairwise import pairwise_distances
 import os
-os.environ['CUDA_VISIBLE_DEVICES'] = '2'
+os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 from EMDLoss import EMDLoss
 import scipy.stats
 from scipy.optimize import curve_fit
@@ -512,7 +512,7 @@ if __name__ == '__main__':
     parser.add_argument('--base_lr', dest='base_lr', type=float, default=1e-4,
                         help='Base learning rate for training.')
     parser.add_argument('--batch_size', dest='batch_size', type=int,
-                        default=4, help='Batch size:8.')
+                        default=8, help='Batch size:8.')
     parser.add_argument('--epochs', dest='epochs', type=int,
                         default=50, help='Epochs for training:50.')
     parser.add_argument('--weight_decay', dest='weight_decay', type=float,
@@ -561,10 +561,6 @@ if __name__ == '__main__':
     
     path = {
         'KONIQ10K':args.dataset_path,
-        'fc_model': os.path.join('fc_models'),
-        'scnn_root': os.path.join('pretrained_scnn','scnn.pkl'),
-        'fc_root': os.path.join('fc_models','net_params_best.pkl'),
-        'db_model': os.path.join('db_models'),
         'swin_model': args.swin_model,
         'vision_tower_name': args.vision_tower_name,
     }
